@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qal Portfolio | Personal Portfolio</title>
+    <title>Qal Portfolio | Network & Cybersecurity Specialist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4f46e5;
-            --primary-light: #6366f1;
-            --secondary: #7c3aed;
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --secondary: #8b5cf6;
             --dark: #0f172a;
-            --light: #f8fafc;
+            --light: #f1f5f9;
             --gray: #64748b;
             --light-gray: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
             --transition: all 0.3s ease;
             --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
@@ -82,6 +84,18 @@
             color: white;
         }
 
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
         /* Header Styles */
         header {
             position: fixed;
@@ -89,10 +103,10 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(248, 250, 252, 0.95);
+            background: rgba(241, 245, 249, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
         }
 
         .navbar {
@@ -170,7 +184,7 @@
             position: relative;
             overflow: hidden;
             padding-top: 80px;
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(124, 58, 237, 0.03) 100%);
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(139, 92, 246, 0.03) 100%);
         }
 
         .hero-content {
@@ -183,14 +197,14 @@
         .hero-text h1 {
             font-size: 3.5rem;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .hero-text h2 {
-            font-size: 1.8rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
-            font-weight: 500;
+        .hero-text .subtitle {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
         }
 
         .hero-text p {
@@ -203,6 +217,13 @@
         .hero-btns {
             display: flex;
             gap: 1rem;
+        }
+
+        .hero-badge {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .hero-image {
@@ -270,30 +291,39 @@
             color: var(--gray);
         }
 
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .stat {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(79, 70, 229, 0.05);
+        .achievements {
+            background: rgba(14, 165, 233, 0.08);
             border-radius: var(--radius);
-            transition: var(--transition);
+            padding: 1.5rem;
+            margin: 2rem 0;
         }
 
-        .stat:hover {
-            transform: translateY(-5px);
-            background: rgba(79, 70, 229, 0.1);
+        .achievements h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
         }
 
-        .stat h3 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
+        .tournament {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .tournament-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
         }
 
         .skills {
@@ -301,6 +331,11 @@
             flex-wrap: wrap;
             gap: 1rem;
             margin-top: 2rem;
+        }
+
+        .skill-category h4 {
+            margin: 1.5rem 0 0.8rem;
+            color: var(--primary-dark);
         }
 
         .skill {
@@ -405,9 +440,65 @@
             color: var(--secondary);
         }
 
+        /* Certifications Section */
+        #certifications {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.03) 0%, rgba(14, 165, 233, 0.03) 100%);
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cert-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(14, 165, 233, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .cert-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-card .issuer {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-card .date {
+            background: var(--light-gray);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+
         /* Contact Section */
         #contact {
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.03) 0%, rgba(124, 58, 237, 0.03) 100%);
+            background: white;
         }
 
         .contact-container {
@@ -509,7 +600,7 @@
         .contact-form textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
         }
 
         .contact-form textarea {
@@ -582,6 +673,23 @@
             text-align: center;
         }
 
+        /* Network visual element */
+        .network-visual {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+            background: 
+                radial-gradient(circle at 20% 30%, var(--primary) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, var(--secondary) 1px, transparent 1px),
+                radial-gradient(circle at 40% 60%, var(--primary) 1px, transparent 1px),
+                radial-gradient(circle at 60% 20%, var(--secondary) 1px, transparent 1px);
+            background-size: 400px 400px;
+        }
+
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero-content,
@@ -604,8 +712,8 @@
                 justify-content: center;
             }
             
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
+            .achievements {
+                margin: 2rem 0;
             }
         }
 
@@ -644,8 +752,8 @@
                 font-size: 2rem;
             }
             
-            .stats {
-                grid-template-columns: 1fr;
+            .hero-badge {
+                justify-content: center;
             }
         }
 
@@ -663,7 +771,8 @@
                 font-size: 2rem;
             }
             
-            .projects-grid {
+            .projects-grid,
+            .certifications-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -688,6 +797,7 @@
                 <a href="#hero">Home</a>
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
+                <a href="#certifications">Certifications</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
@@ -695,11 +805,17 @@
 
     <!-- Hero Section -->
     <section id="hero">
+        <div class="network-visual"></div>
         <div class="container hero-content">
             <div class="hero-text">
                 <h1>Qal Portfolio</h1>
-                <h2>Creative Developer & Designer</h2>
-                <p>Welcome to my digital space! I create stunning, functional websites and applications that blend aesthetics with performance.</p>
+                <div class="subtitle">Network & Cybersecurity Specialist</div>
+                <div class="hero-badge">
+                    <span class="badge" style="background: var(--success);"><i class="fas fa-shield-alt"></i> Cybersecurity</span>
+                    <span class="badge" style="background: var(--warning);"><i class="fas fa-network-wired"></i> Networking</span>
+                    <span class="badge"><i class="fas fa-trophy"></i> ITNSA Competitor</span>
+                </div>
+                <p>I design and implement secure network infrastructures while developing innovative cybersecurity solutions to protect digital assets.</p>
                 <div class="hero-btns">
                     <a href="#projects" class="btn">View My Work</a>
                     <a href="#contact" class="btn btn-outline">Get In Touch</a>
@@ -707,7 +823,7 @@
             </div>
             <div class="hero-image">
                 <div class="hero-shape"></div>
-                <img src="https://placehold.co/600x700/4f46e5/white?text=Qal" alt="Qal Portrait">
+                <img src="https://placehold.co/600x700/0ea5e9/white?text=Qal" alt="Qal Portrait">
             </div>
         </div>
     </section>
@@ -717,42 +833,60 @@
         <div class="container">
             <div class="section-title">
                 <h2>About Me</h2>
-                <p>My journey in the digital world</p>
+                <p>My journey in network engineering and cybersecurity</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Hello! I'm Qal, a passionate developer and designer with a keen eye for detail and a love for creating beautiful digital experiences. My approach combines technical expertise with creative vision to deliver solutions that not only function flawlessly but also delight users.</p>
-                    <p>With a background in both design and development, I bridge the gap between aesthetics and functionality. I specialize in creating responsive, accessible, and performant websites using modern technologies.</p>
-                    <p>When I'm not coding or designing, you can find me exploring new tech trends, contributing to open-source projects, or enjoying outdoor adventures.</p>
+                    <p>Hello! I'm Qal, a dedicated network engineering and cybersecurity student with a passion for protecting digital infrastructures and optimizing network performance. My expertise spans both theoretical knowledge and practical implementation.</p>
+                    <p>As an active participant in the ITNSA (International Telecommunication Network Students Association) tournaments, I've honed my skills in real-world network scenarios, problem-solving under pressure, and collaborative technical challenges.</p>
+                    <p>My approach combines deep technical understanding with creative problem-solving to deliver robust, secure, and efficient network solutions.</p>
                     
-                    <div class="stats">
-                        <div class="stat">
-                            <h3>5+</h3>
-                            <p>Years Experience</p>
+                    <div class="achievements">
+                        <h3><i class="fas fa-trophy"></i> Tournament Achievements</h3>
+                        <div class="tournament">
+                            <div class="tournament-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div>
+                                <h4>ITNSA Network Challenge</h4>
+                                <p>Top 10 Finalist - 2024</p>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <h3>50+</h3>
-                            <p>Projects Completed</p>
-                        </div>
-                        <div class="stat">
-                            <h3>20+</h3>
-                            <p>Happy Clients</p>
+                        <div class="tournament">
+                            <div class="tournament-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4>ITNSA Cybersecurity Track</h4>
+                                <p>Regional Qualifier - 2023</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="skills">
-                        <span class="skill"><i class="fab fa-html5"></i> HTML5</span>
-                        <span class="skill"><i class="fab fa-css3-alt"></i> CSS3</span>
-                        <span class="skill"><i class="fab fa-js"></i> JavaScript</span>
-                        <span class="skill"><i class="fab fa-react"></i> React</span>
-                        <span class="skill"><i class="fab fa-vuejs"></i> Vue.js</span>
-                        <span class="skill"><i class="fas fa-mobile-alt"></i> Responsive Design</span>
-                        <span class="skill"><i class="fas fa-paint-brush"></i> UI/UX</span>
-                        <span class="skill"><i class="fas fa-server"></i> Node.js</span>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-network-wired"></i> Networking</h4>
+                        <div class="skills">
+                            <span class="skill"><i class="fas fa-server"></i> Cisco Routers & Switches</span>
+                            <span class="skill"><i class="fas fa-wifi"></i> Wireless Networking</span>
+                            <span class="skill"><i class="fas fa-project-diagram"></i> Network Topology</span>
+                            <span class="skill"><i class="fas fa-sitemap"></i> VLAN Implementation</span>
+                            <span class="skill"><i class="fas fa-cloud"></i> SD-WAN</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4><i class="fas fa-shield-alt"></i> Cybersecurity</h4>
+                        <div class="skills">
+                            <span class="skill"><i class="fas fa-lock"></i> Penetration Testing</span>
+                            <span class="skill"><i class="fas fa-bug"></i> Vulnerability Assessment</span>
+                            <span class="skill"><i class="fas fa-fingerprint"></i> Ethical Hacking</span>
+                            <span class="skill"><i class="fas fa-shield-virus"></i> Malware Analysis</span>
+                            <span class="skill"><i class="fas fa-key"></i> Cryptography</span>
+                        </div>
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="https://placehold.co/600x500/7c3aed/white?text=About+Qal" alt="About Qal">
+                    <img src="https://placehold.co/600x500/8b5cf6/white?text=Network+Expert" alt="Network Expert">
                 </div>
             </div>
         </div>
@@ -763,23 +897,42 @@
         <div class="container">
             <div class="section-title">
                 <h2>My Projects</h2>
-                <p>Selected works that showcase my skills</p>
+                <p>Network and cybersecurity solutions I've developed</p>
             </div>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://placehold.co/600x400/4f46e5/white?text=E-Commerce+Platform" alt="Project 1">
+                        <img src="https://placehold.co/600x400/0ea5e9/white?text=Secure+Network+Infrastructure" alt="Project 1">
                     </div>
                     <div class="project-content">
-                        <h3>E-Commerce Platform</h3>
-                        <p>A fully responsive e-commerce solution with product filtering, cart functionality, and secure checkout.</p>
+                        <h3>Secure Enterprise Network</h3>
+                        <p>Designed and implemented a multi-layered secure network infrastructure with firewalls, IDS/IPS, and segmented VLANs.</p>
                         <div class="project-tags">
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">MongoDB</span>
+                            <span class="project-tag">Cisco</span>
+                            <span class="project-tag">Firewall</span>
+                            <span class="project-tag">VLAN</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Case Study</a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Documentation</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://placehold.co/600x400/8b5cf6/white?text=Penetration+Testing+Report" alt="Project 2">
+                    </div>
+                    <div class="project-content">
+                        <h3>Vulnerability Assessment Tool</h3>
+                        <p>Developed a Python-based tool to automate vulnerability scanning and generate comprehensive security reports.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Nmap</span>
+                            <span class="project-tag">OWASP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
                             <a href="#" class="project-link"><i class="fab fa-github"></i> Source Code</a>
                         </div>
                     </div>
@@ -787,34 +940,15 @@
                 
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://placehold.co/600x400/7c3aed/white?text=Task+Manager+App" alt="Project 2">
+                        <img src="https://placehold.co/600x400/0ea5e9/white?text=Network+Monitoring+Dashboard" alt="Project 3">
                     </div>
                     <div class="project-content">
-                        <h3>Task Manager App</h3>
-                        <p>A productivity application with drag-and-drop interface, task categorization, and progress tracking.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Vue.js</span>
-                            <span class="project-tag">Firebase</span>
-                            <span class="project-tag">SCSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            <a href="#" class="project-link"><i class="fab fa-github"></i> Source Code</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="https://placehold.co/600x400/4f46e5/white?text=Travel+Blog" alt="Project 3">
-                    </div>
-                    <div class="project-content">
-                        <h3>Travel Blog</h3>
-                        <p>An interactive travel blog with location-based content, image galleries, and user comments.</p>
+                        <h3>Network Monitoring Dashboard</h3>
+                        <p>Real-time network monitoring system with alerting capabilities for traffic anomalies and security events.</p>
                         <div class="project-tags">
                             <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Mapbox</span>
-                            <span class="project-tag">REST API</span>
+                            <span class="project-tag">SNMP</span>
+                            <span class="project-tag">Data Visualization</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
@@ -826,12 +960,53 @@
         </div>
     </section>
 
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications & Achievements</h2>
+                <p>Validating my expertise in networking and cybersecurity</p>
+            </div>
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cybersecurity Fundamentals</h3>
+                    <p class="issuer">CompTIA Security+</p>
+                    <p>Validates baseline skills in core security functions and best practices.</p>
+                    <span class="date">Expected 2025</span>
+                </div>
+                
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Network Engineering</h3>
+                    <p class="issuer">Cisco CCNA</p>
+                    <p>Comprehensive understanding of network fundamentals, security, and automation.</p>
+                    <span class="date">In Progress</span>
+                </div>
+                
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>ITNSA Tournament</h3>
+                    <p class="issuer">International Telecommunication Network Students Association</p>
+                    <p>Competed in network configuration and troubleshooting challenges against top students.</p>
+                    <span class="date">2023-2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <div class="section-title">
                 <h2>Get In Touch</h2>
-                <p>Have a project in mind? Let's collaborate!</p>
+                <p>Interested in collaborating on a project or discussing opportunities?</p>
             </div>
             <div class="contact-container">
                 <div class="contact-info">
@@ -869,7 +1044,7 @@
                         <a href="#" class="social-link"><i class="fab fa-github"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-globe"></i></a>
                     </div>
                 </div>
                 <div class="contact-form">
@@ -884,7 +1059,7 @@
                             <input type="text" placeholder="Subject">
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Your Message" required></textarea>
+                            <textarea placeholder="Your Message (e.g., network consultation, cybersecurity project, etc.)" required></textarea>
                         </div>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
@@ -901,15 +1076,16 @@
                     <div class="footer-logo-icon">Q</div>
                     Qal Portfolio
                 </a>
-                <p class="footer-text">Crafting digital experiences that blend creativity with functionality. Specializing in modern web development and design.</p>
+                <p class="footer-text">Network engineering and cybersecurity specialist with tournament experience in ITNSA competitions. Focused on building secure, efficient, and resilient digital infrastructures.</p>
                 <div class="footer-links">
                     <a href="#hero">Home</a>
                     <a href="#about">About</a>
                     <a href="#projects">Projects</a>
+                    <a href="#certifications">Certifications</a>
                     <a href="#contact">Contact</a>
                 </div>
                 <p class="copyright">© 2025 Qal Portfolio. All rights reserved.</p>
-                <p class="copyright">Hosted on qalnetwork</p>
+                <p class="copyright">Hosted on qalnetwork.com</p>
             </div>
         </div>
     </footer>
@@ -955,11 +1131,11 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-                header.style.background = 'rgba(248, 250, 252, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(15, 23, 42, 0.1)';
+                header.style.background = 'rgba(241, 245, 249, 0.98)';
             } else {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-                header.style.background = 'rgba(248, 250, 252, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(15, 23, 42, 0.08)';
+                header.style.background = 'rgba(241, 245, 249, 0.95)';
             }
         });
     </script>
